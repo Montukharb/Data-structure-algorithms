@@ -1,3 +1,1 @@
-
-    cout<<*p<<endl;
-    cout<<**pp<<endl;
+0
