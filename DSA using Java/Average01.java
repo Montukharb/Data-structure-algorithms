@@ -14,3 +14,7 @@ public class Average01{
        System.out.println("Average of three numbers = "+average);
     }
 }
+
+
+// area = 1/2 * base * height;
+// parameter = a + b + c;
