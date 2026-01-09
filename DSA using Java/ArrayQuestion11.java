@@ -4,7 +4,7 @@ public class ArrayQuestion11{
            ArrayQuestion11 obj = new ArrayQuestion11();
            int arr[] = {1,2,3,1},arr2[] = {1,2,3,4},arr3[] = {1,1,1,3,3,4,3,2,4,2};
 
-           System.out.println("duplicate value availability = " + obj.DuplicateCheck(arr3));
+           System.out.println("duplicates value availability = " + obj.DuplicateCheck(arr3));
         }
     } 
     boolean DuplicateCheck(int arr[]){
