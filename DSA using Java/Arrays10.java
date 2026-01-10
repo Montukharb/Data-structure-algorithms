@@ -36,7 +36,8 @@ public class Arrays10 {
         //call kaden's function
         int[] kadarr = {-2, -3, 4, -1, -2, 1, 5, -3};
         System.out.println("max sum of sub- array = " + obj.Kadans_Algorithm(kadarr));
-        int[] trapped_arr = {4, 2, 0, 6, 3, 2, 5};
+        // int[] trapped_arr = {4, 2, 0, 3, 2, 5};
+        int[] trapped_arr = {0,1,0,2,1,0,1,3,2,1,2,1};
         int building_width = 1;
 
         int trap_res = obj.Trapped_water(trapped_arr, building_width);
