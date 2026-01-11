@@ -25,6 +25,12 @@ public class ArraySorting12 {
         // obj.inbuild_arr_display(unsorted_arr2);
         obj.inbuild_sorting(unsorted_arr2);
 
+        //counting sort;
+        int ar[] = {4, 2, 2, 8, 3, 3, 1};
+        obj.Counting_sort(ar);
+        System.err.println();
+        obj.display_arr(ar);
+
     }
 
 
@@ -114,6 +120,39 @@ public class ArraySorting12 {
         for (var i : unsorted_arr2) {
             System.out.print(i + " ");
         }
+    }
+
+    //counting sorting;
+    /*Counting sort is a powerful algorithm 
+   def: counting sort is efficient when the range of inpute data is not significantly greater than the number of elements.*/
+    void Counting_sort(int arr[]) {
+        //step 1 find the maximul array element;
+        int bigest = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > bigest) {
+                bigest = arr[i];
+            }
+        }
+        // System.out.println("max element" + bigest);
+        // Step 2; Make a count array with length is bigest+1;
+        int[] count = new int[bigest + 1]; //java automaticall stored zero value each index if not initalize;
+
+        //step 3; traverse the orignal array and count the frequency of array;
+        for (int i = 0; i < arr.length; i++) {
+            count[arr[i]]++; //means count array index number zero to n arr[0] = 4 count[4] = 1, arr[1] = 2 value  count[2] = 1 arr[2] = 2 count[2] = 1++(2)
+        }
+
+        //step 4 sorting;
+        int index = 0;
+        for (int i = 0; i < count.length; i++) {
+            while (count[i] > 0) //firt starting index count[1] = 1 > 0;
+            {
+                arr[index] = i; //orignal array indexing arr[0] = 1,arr[1] = 2 till end
+                index++;
+                count[i]--; //decrease the count array indexing frequency if zero end loop
+            }
+        }
+
     }
 
 }
