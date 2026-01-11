@@ -18,7 +18,7 @@ public class ArrayQuestion11 {
             {
               System.out.println("Index not found = " + sorArrRes);
             }
-            int[] bSSarr = {7,1,5,3,6,4};
+            // int[] bSSarr = {7,1,5,3,6,4};
             int[] bSSarr2 = {7,6,4,3,1};
             System.out.println("Buy and Sell Stock Result = "+ obj.buyAndSellStock(bSSarr2));
         }
