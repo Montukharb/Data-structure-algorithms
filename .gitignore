@@ -1,0 +1,31 @@
+# ===== C++ Compiled Files =====
+*.exe
+*.out
+*.app
+*.o
+*.obj
+
+# ===== VS Code =====
+.vscode/
+*.code-workspace
+
+# ===== OS Files =====
+.DS_Store
+Thumbs.db
+
+# ===== Logs =====
+*.log
+
+# ===== Temporary Files =====
+*.tmp
+*.temp
+
+# ===== Debug Files =====
+*.pdb
+*.ilk
+
+# ===== CMake =====
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
