@@ -25,6 +25,25 @@ public class Array2D_Questions13 {
         };
         int key = 27;
         obj.Search_in_sorted_matrix(topdownsorted, key);
+        int a = 5; //1 0 1
+        int b = 4;//1 0 0 
+        //output =  1 which is 4 in decimal
+        System.out.println(a & b);
+        int s = -10;
+        System.out.println(~s); //not of 10 answer = -11; how
+        //apply this fourmula nomarly count ~N = -(N+1); so N = 10 = -(10 + 1) which is ~N = -11; 
+        System.out.println((~0) << 5); //left shift << 2;
+
+        //swapping without using third variable;
+        int a1 = 10;
+        int a2 = 20;
+        a1 = a1 + a2;  //a1 = 10 + 20 = 30
+        a2 = a1 - a2;  //a2 = 30 - 20 = 10
+        a1 = a1 - a2;  //a3 = 30 - 10 = 20
+
+        System.err.println("a1 = " + a1);
+        System.err.println("a2 = " + a2);
+
     }
 
     int DiagonalMatrix(int arr[][]) {
@@ -101,6 +120,14 @@ public class Array2D_Questions13 {
             }
         }
         System.err.println("Not found !");
+        // synchronized void print()
+        // {
+
+        // }
+        // try {
+        // Thread.sleep(3000);  3 second wait;
+        // } catch (Exception e) {
+        // }
         return false;
     }
 }
