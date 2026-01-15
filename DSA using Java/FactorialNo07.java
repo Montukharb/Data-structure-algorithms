@@ -14,6 +14,7 @@ public class FactorialNo07{
         {
             return 1;
         }
+         System.out.println(inp);
         return inp * factorial(inp -1); 
      } 
 }
