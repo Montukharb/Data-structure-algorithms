@@ -29,10 +29,11 @@ public class Array2D_Questions13 {
         int b = 4;//1 0 0 
         //output =  1 which is 4 in decimal
         System.out.println(a & b);
-        int s = -10;
-        System.out.println(~s); //not of 10 answer = -11; how
+        // int s = -2;
+        System.out.println(~(2)); //not of 10 answer = -11; how
         //apply this fourmula nomarly count ~N = -(N+1); so N = 10 = -(10 + 1) which is ~N = -11; 
-        System.out.println((~0) << 5); //left shift << 2;
+        System.out.println((~0) << 4); //left shift << 2;
+        System.out.println("binary right shift = " + (5 >> 2)); //left shift << 2;
 
         //swapping without using third variable;
         int a1 = 10;
