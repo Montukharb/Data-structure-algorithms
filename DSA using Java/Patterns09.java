@@ -31,6 +31,8 @@ public class Patterns09 {
                 }
             }
             System.out.println(); //for next line
+
+
         }
 
     }

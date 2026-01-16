@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Scanner;
+//import java.util.Collections;
 
 public class BitManipulation14 {
 
@@ -5,7 +8,9 @@ public class BitManipulation14 {
 
         BitManipulation14 obj = new BitManipulation14();
         obj.Bin_Operator();
-        obj.Bin_odd_even(5, 1);
+        int nu = 5;
+        int nulsb = 1;
+        obj.Bin_odd_even(nu, nulsb);
         int num = 64;
         int res = obj.GetithBit(num, 3);
         System.out.println("ith bit of " + num + " = " + res);
@@ -23,6 +28,9 @@ public class BitManipulation14 {
         //binary modulo exponention call;
 
         System.out.println("Modulo exponention = " + obj.BinaryModExpo(base + 18, pow, 30));
+        System.out.println(obj.countVovel());
+        System.out.println("string anagram = " + obj.anagram_String());
+        obj.bit_mani_Ques();
     }
 
     //Binary operators
@@ -134,7 +142,7 @@ public class BitManipulation14 {
         System.out.println("Entered number " + orig + " bits = " + count);
     }
 
-    //binary exponention using recurrsion;
+    //binary exponention using recurrsion; O(n)
     int BinaryExponention(int num, int pow) {
         if (pow == 0) {
             return 1;
@@ -170,5 +178,87 @@ public class BitManipulation14 {
             pow = pow >> 1;
         }
         return ans;
+    }
+
+    //count how many times vowels occurred in a string;
+    int countVovel() {
+//        String sc = new Scanner(System.in).next(); //working no error
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter text");
+        String text = sc.next();
+        char ch;
+        int count = 0;
+        for (int i = 0; i < text.length(); i++) {
+            ch = text.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                count++;
+            }
+        }
+        return count;
+
+    }
+
+    /*anagram string
+    if two strings contain the same characters but in a different order, they can be said to be anagrams. Consider race and care. In this case, race's characters can be formed into a study, or care's characters can be formed into race. Below is a java program to check if two strings are anagrams or not.
+    * */
+    boolean anagram_String() {
+        String str = "Cdare";
+        String str2 = "raDre";
+
+
+        str = str.toUpperCase();
+        str2 = str2.toUpperCase();
+
+//        StringBuilder st = new StringBuilder("default string");
+//        char charbuilder[] = new char[st.length()];
+//        for (int i = 0; i<st.length();i++)
+//        {
+//            charbuilder[i] = st.charAt(i);
+//        }
+//        System.out.println(charbuilder);
+
+        char str_ar[] = str.toCharArray();
+        char str_ar2[] = str2.toCharArray();
+
+        Arrays.sort(str_ar);
+        Arrays.sort(str_ar2);
+
+        int length1 = str_ar.length;
+        int length2 = str_ar2.length;
+        if (length2 == length1) {
+            for (int i = 0; i < str_ar2.length; i++) {
+                if (str_ar[i] == str_ar2[i]) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
+    //bit manipulation questions
+    void bit_mani_Ques() {
+        int x = 5;
+        System.out.println("x ^ x = " + (x ^ x));
+
+        //swaping two number without using third variable;
+        int a = 2;
+        int b = 8;
+        a = a + b;  // a = 10;
+        b = a - b;  // b = 2;
+        a = a - b;  // a = 8;
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+
+        System.out.println("using NOT Operator add 1 in b = " + (-(~b)));
+
+        //uppercase to lower case using bit manipulation
+        //ascii value A to Z = 65 to 90, a to z = 97 to 122;
+        for (char ch = 'A'; ch <= 'Z'; ch++) {
+            System.out.print((char) (ch | ' ') + "-");  //blank space ascii value = 32;
+        }
+
+
     }
 }

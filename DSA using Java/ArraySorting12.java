@@ -76,7 +76,7 @@ public class ArraySorting12 {
             arr[i] = arr[smallest]; //array ith index set smallest element
             arr[smallest] = temp; //array smallest element set array ith bigest number
         }
-    }
+    };
 
     void insertion_sort(int arr[]) {
         //idea = taking from card shifting ascending order;

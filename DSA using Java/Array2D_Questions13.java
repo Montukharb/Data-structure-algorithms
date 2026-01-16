@@ -44,6 +44,7 @@ public class Array2D_Questions13 {
 
         System.err.println("a1 = " + a1);
         System.err.println("a2 = " + a2);
+        System.out.println("minus =  "+-(~0));
 
     }
 
