@@ -35,6 +35,25 @@ public class Recurrsion15 {
         //binary power optimized;
         System.out.println("binary power optimized power of 2 ^ 10 = " + obj.binary_power_optimized(2, 10));
 
+        //Tiling problem call here;
+        int tn = 3;
+        int til_size = 1;
+        System.out.println("Total possible ways of tiling = " + obj.tillingProblem(tn, til_size));
+
+        //duplicate string first occurrence write another skip call here;
+        StringBuilder st = new StringBuilder("AaAbbBCCcDdee");
+        System.out.println("Given string = " + st);
+        StringBuilder stnew = new StringBuilder();
+        boolean[] seen = new boolean[26];
+        obj.removeStringDuplicates(st, stnew, seen, 0);
+        System.out.println("after = " + stnew);
+
+        //Friends pairing problems;
+        System.out.println("Friend pairing total = " + obj.friends_pairing(4));
+
+        //binary string problem consecutive n size string print fun call here
+        obj.str_consecutive_ones(4, "", '0');
+
     }
 
     //decreasing number n to 1
@@ -125,6 +144,68 @@ public class Recurrsion15 {
             halfsq = n * halfsq;
         }
         return halfsq;
+    }
+
+    // 2 * n (n = user defined) or tile size user defined 2 * tileSize;
+    int tillingProblem(int n, int tileSize) {
+        if ((n == 0) || (n == 1)) {
+            return 1;  //base case if floor size;
+        }
+
+
+        return tillingProblem(n - 1, tileSize) + tillingProblem(n - 2, tileSize); //main case;
+    }
+
+    /* The problem requires removing duplicate characters from a string while preserving their first occurrence order.
+    constraints Case insensitive string check
+    without using other data structure;
+    only lower case letter. for given string = "AaAbbBCCcDdee";
+    */
+
+    void removeStringDuplicates(StringBuilder sb_str, StringBuilder newStr, boolean[] seen, int index) {
+
+        if (index == sb_str.length()) {
+            return;
+            //base case;
+        }
+        char ch = Character.toUpperCase(sb_str.charAt(index));
+        int pos = ch - 'A';
+        if (!seen[pos]) {
+            seen[pos] = true;
+            newStr.append(ch);
+        }
+        removeStringDuplicates(sb_str, newStr, seen, index + 1);
+    }
+
+    int friends_pairing(int n) {
+        if ((n == 1) || (n == 2)) {
+            return n;
+        }
+        //single ways;
+        int single = friends_pairing(n - 1);
+
+        //pair ways  2 friends make 1 pair ((a,b),c) ((a,c),b) ((b,c),a) not allowed duplicate (a,b) or (b,a) are same
+        int pair = friends_pairing(n - 2);
+
+        //int choices if one people compare other which is ready to make pair n-1 possible ways;
+        int choice = (n - 1);
+        int pair_total = choice * pair;
+
+        return single + pair_total;
+    }
+
+    /* Binary strings problem
+    Print all binary strings of size N without consecutive ones.
+    */
+    void str_consecutive_ones(int n, String str, char last) {
+        if (n == 0) {
+            System.out.println(str);
+            return;
+        }
+        str_consecutive_ones(n - 1, str + "0", '0');
+        if (last == '0') {
+            str_consecutive_ones(n - 1, str + "1", '1');
+        }
     }
 
 }
