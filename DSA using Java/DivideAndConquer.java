@@ -4,12 +4,13 @@ public class DivideAndConquer {
         DivideAndConquer obj = new DivideAndConquer();
 
         //merge sort method call
-        int[] unsortedarr = {87, 6, 3, 9, 5, 7, 8, 87, -1, -3, 2, 8};
-//        obj.mergeSort(unsortedarr, 0, unsortedarr.length - 1);
-//        obj.display_algorithm(unsortedarr);
-        int st_idx = 0;
-        obj.quickSort(unsortedarr, st_idx, unsortedarr.length - 1);
+//        int[] unsortedarr = {87, 6, 3, 9, 5, 7, 8, 87, -1, -3, 2, 8};
+        int[] unsortedarr = {6,3,9,8,2,5};
+        obj.mergeSort(unsortedarr, 0, unsortedarr.length - 1);
         obj.display_algorithm(unsortedarr);
+//        int st_idx = 0;
+//        obj.quickSort(unsortedarr, st_idx, unsortedarr.length - 1);
+//        obj.display_algorithm(unsortedarr);
 
     }
 
