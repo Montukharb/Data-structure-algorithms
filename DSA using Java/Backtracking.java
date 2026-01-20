@@ -135,7 +135,7 @@ public class Backtracking {
             for (int j = 0; j < arr.length; j++) {
                 System.out.print(chars[j] + " ");
             }
-            System.out.println();
+            System.out.println(); //next line
         }
 
     }
