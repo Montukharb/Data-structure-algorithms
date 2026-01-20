@@ -24,7 +24,7 @@ public class Recurrsion15 {
         int start = 0;
         System.out.println("\nis array sorted or not = " + obj.is_array_sorted(arr, start));
 
-        //first occurence key search function call here;
+        //first occurrence key search function call here;
         int[] wapArr = {8, 3, 6, 9, 5, 10, 2, 5, 3};
         int search_key = 5;
         System.out.println("WAP first occurrence search key found in index = " + obj.first_occurrence_search_key(wapArr, search_key, start));

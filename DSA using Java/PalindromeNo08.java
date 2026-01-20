@@ -12,6 +12,7 @@ public class PalindromeNo08 {
         System.out.println(obj.CheckNum(num));
         System.out.println("Sum of digits = " + obj.sumofDigits(num));
 
+        System.out.println("palindrome string = " + obj.palindromeString("radar"));
     }
 
     public String CheckNum(int num) {
@@ -36,6 +37,7 @@ public class PalindromeNo08 {
     }
 
     ;
+
     // sum of digits;
     int sumofDigits(int num) {
 
@@ -48,4 +50,14 @@ public class PalindromeNo08 {
         return sum;
     }
 
+    boolean palindromeString(String str) {
+        for (int i = 0; i < str.length() / 2; i++) {
+            if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
+
+                return false;
+            }
+        }
+
+        return true;
+    }
 };
