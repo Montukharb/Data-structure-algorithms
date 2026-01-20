@@ -1,20 +1,20 @@
 
 public class Array2D_Questions13 {
 
-    public static void main(String[] args) {
+     static void main(String[] args) {
 
         Array2D_Questions13 obj = new Array2D_Questions13();
-        int arr[][] = new int[][]{ //even n * n matrix;
+        int[][] arr = new int[][]{ //even n * n matrix;
             {1, 2, 3, 4},
             {5, 6, 7, 8},
             {9, 10, 11, 12},
             {13, 14, 15, 16},};
         //diagonal sum;
-        int arr2[][] = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}}; //odd n * n matrix
+        int[][] arr2 = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}}; //odd n * n matrix
         System.out.println("Total Diagonal sum = " + obj.DiagonalMatrix(arr2));
 
         //spiral matrix;    
-        obj.Spiral_Matrxi(arr2);
+        obj.Spiral_Matrix(arr2);
 
         //search in sorted matrix;
         int[][] topdownsorted = {
@@ -42,13 +42,13 @@ public class Array2D_Questions13 {
         a2 = a1 - a2;  //a2 = 30 - 20 = 10
         a1 = a1 - a2;  //a3 = 30 - 10 = 20
 
-        System.err.println("a1 = " + a1);
-        System.err.println("a2 = " + a2);
+        System.out.println("a1 = " + a1);
+        System.out.println("a2 = " + a2);
         System.out.println("minus =  "+-(~0));
 
     }
 
-    int DiagonalMatrix(int arr[][]) {
+    int DiagonalMatrix(int[][] arr) {
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
             // System.out.print(arr[i][i]+" ");
@@ -63,7 +63,7 @@ public class Array2D_Questions13 {
         return sum;
     }
 
-    void Spiral_Matrxi(int arr[][]) {
+    void Spiral_Matrix(int[][] arr) {
         int start_row = 0;
         int start_col = 0;
         int end_row = arr.length - 1;
@@ -87,7 +87,7 @@ public class Array2D_Questions13 {
                 {
                     break;
                 }
-                System.err.print(arr[end_row][j] + ",");
+                System.out.print(arr[end_row][j] + ",");
             }
 
             //left row down to towards;
@@ -107,7 +107,7 @@ public class Array2D_Questions13 {
 
     //Search in Sorted Matrix;
     //time complexity = O(n+m);
-    boolean Search_in_sorted_matrix(int arr[][], int key) {
+    boolean Search_in_sorted_matrix(int[][] arr, int key) {
         int row = 0;
         int col = arr[0].length - 1;
 
@@ -121,7 +121,7 @@ public class Array2D_Questions13 {
                 row++;
             }
         }
-        System.err.println("Not found !");
+        System.out.println("Not found !");
         // synchronized void print()
         // {
 
