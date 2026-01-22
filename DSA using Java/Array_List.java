@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Array_List {
 
@@ -17,6 +18,8 @@ public class Array_List {
         list.add(3, 689); //add element with specify index position;
         list.set(1, 1994); //set element at an index;
         int res = list.remove(5);
+//        Collections.sort(list,Collections.reverseOrder());
+
         System.out.println(list);
         System.out.println("Deleted element = " + res);
         System.out.println("Array Size = " + list.size());

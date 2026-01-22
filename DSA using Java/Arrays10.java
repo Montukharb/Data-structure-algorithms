@@ -113,6 +113,8 @@ public class Arrays10 {
     }
 
     //Pairs in array;
+
+    //time complexity = O(n^2);
     void Pairs_in_array(int arr[]) {
         System.out.println("\nPairs in array");
         for (int i = 0; i < arr.length; i++) {

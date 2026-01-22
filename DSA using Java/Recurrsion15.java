@@ -14,7 +14,7 @@ public class Recurrsion15 {
         System.out.println("Factorial of " + fact + " = " + obj.factorial_n(fact));
 
         //fibonacci series call here using loop
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 5; i++) {
             System.out.print(obj.fibonacci_series(i) + " ");
         }
 
