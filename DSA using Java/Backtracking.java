@@ -192,7 +192,7 @@ public class Backtracking {
 
     boolean sudokoSolver(int[][] sudoko, int row, int col) {
         if (row == 9) {
-            return true; //base case;
+            return true; //base case; //out of boundary;
         }
 
         int nextrow = row;
