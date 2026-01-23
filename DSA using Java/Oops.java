@@ -7,7 +7,7 @@ public class Oops {
 }
 
 class Test {
-    public static Test instance = new Test("Test class argument");
+//    public static Test instance = new Test("Test class argument");
     //constructors;
 
     protected Test(int age) {
@@ -20,6 +20,7 @@ class Test {
 
     Test() {
         this(23);
+
         System.out.println("Normal constructor parent");
     }
 
@@ -38,10 +39,10 @@ class Child extends Test {
     public Child() {
         super(8059202360L);
         System.out.println("Child class constructor");
-        Test ob = Test.instance;
+//        Test ob = Test.instance;
 //        Test ob2 = new Test();
 //        ob2.disp("normal object");
-        ob.disp("with instance object");
+//        ob.disp("with instance object");
     }
 }
 
