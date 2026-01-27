@@ -36,10 +36,10 @@ public class Queue_using_Array {
             return -1;
         }
         int item = queue[front];
-        rear--;
-        for (int i = 0; i <= rear; i++) {
+        for (int i = 0; i < rear; i++) {
             queue[i] = queue[i + 1];
         }
+        rear--;
         return item;
     }
 
@@ -63,8 +63,6 @@ public class Queue_using_Array {
         q.enque(5);
         q.display();
         System.out.println();
-        System.out.println("Deleted item = " + q.deque());
-        System.out.println("Deleted item = " + q.deque());
         System.out.println("Deleted item = " + q.deque());
         q.display();
     }
