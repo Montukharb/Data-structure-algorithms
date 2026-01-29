@@ -87,10 +87,10 @@ public class DivideAndConquer {
         //get pivot element after partition left sorted after pivot;
         int pivot = partition(arr, st_idx, en_idx);
 
-        //before pivot left sorting smaller;
+        //pivot left sorting smaller;
         quickSort(arr, st_idx, pivot - 1);
 
-        //after pivot right sorting grater numbers;
+        //pivot right sorting grater numbers;
         quickSort(arr, pivot + 1, en_idx);
     }
 
@@ -112,6 +112,4 @@ public class DivideAndConquer {
         arr[i] = temp;
         return i;
     }
-
-
 }
