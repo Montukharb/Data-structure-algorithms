@@ -62,14 +62,16 @@ public class Subtree {
 
     boolean isSubtree(Node treeRoot, Node subtreeRoot) {
         if (treeRoot == null) {
-            return false;
+            return false; //base case;
         }
-        if (treeRoot.data == subtreeRoot.data) {
+        if (treeRoot.data == subtreeRoot.data) { //mainTree root node data match to subtree root node data;
             if (isIdentical(treeRoot, subtreeRoot)) {
                 return true;
             }
         }
+        //not found left child check tree node
         boolean leftTree = isSubtree(treeRoot.left, subtreeRoot);
+        //not found right child check tree node
         boolean rightTree = isSubtree(treeRoot.right, subtreeRoot);
 
         return leftTree || rightTree;
