@@ -13,7 +13,7 @@ public class TopViewTree {
         Node right;
         Node left;
 
-        private Node(int data) {
+        Node(int data) {
             this.data = data;
             right = null;
             left = null;
