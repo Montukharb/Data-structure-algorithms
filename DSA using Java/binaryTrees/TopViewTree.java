@@ -92,11 +92,70 @@ public class TopViewTree {
         }
     }
 
+    //using recursion find kth level tree node;
+    void kthLevelTreePrint(Node mainNode, int level, int kth) {
+        if (mainNode == null) {
+            return;
+        }
+        if (kth == level) {
+            System.out.print(mainNode.data + " ");
+        }
+        kthLevelTreePrint(mainNode.left, level + 1, kth);
+        kthLevelTreePrint(mainNode.right, level + 1, kth);
+
+    }
+
+    //find kth level tree node using level by iteration;
+
+    void kthLevelIteration(Node mainNode, int kth) {
+        if (mainNode == null) {
+            return;
+        }
+        int level = 1;
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(mainNode);
+        queue.add(null);
+
+        while (!queue.isEmpty()) {
+            Node current = queue.remove();
+            if (current == null) {
+//                System.out.println();  //enable mandatory when traversing display data level by level;
+                level++;
+                if (queue.isEmpty()) {
+                    break;
+                } else {
+                    queue.add(null);
+                }
+            } else {
+//                System.out.print(current.data + " ");
+                if (level == kth) {
+                    System.out.print(current.data + " ");
+                }
+
+                if (current.left != null) {
+                    queue.add(current.left);
+
+                }
+                if (current.right != null) {
+                    queue.add(current.right);
+
+                }
+            }
+        }
+
+    }
+
+
     static void main(String[] args) {
         TopViewTree obj = new TopViewTree();
         Node rootNode = obj.buildTree(nodes);
         obj.displayPreorder(rootNode);
         System.out.println("\nTop view tree");
         obj.topViewTree(rootNode);
+        System.out.println("\nkth level nodes = ");
+        obj.kthLevelTreePrint(rootNode, 1, 3);
+        System.out.println("\nKth level find using level iteration");
+        int kth = 3;
+        obj.kthLevelIteration(rootNode, kth);
     }
 }
