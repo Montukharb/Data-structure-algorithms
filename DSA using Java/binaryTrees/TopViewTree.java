@@ -1,5 +1,6 @@
 package binaryTrees;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -145,6 +146,144 @@ public class TopViewTree {
 
     }
 
+    //path for lowest common ancestor
+    boolean getPath(Node root, int n, ArrayList<Node> path) {
+        if (root == null) {
+            return false;
+        }
+
+        path.add(root); //first node add by default;
+
+        //check our n is root or not
+        if (root.data == n) {
+            return true; //ancestor match;
+        }
+
+        //check left child path possible or not;
+        boolean leftRes = getPath(root.left, n, path);
+
+        //check right child path possible or not;
+        boolean rightRes = getPath(root.right, n, path);
+
+        if (leftRes || rightRes) {
+            return true;
+        }
+        //else not anywhere remove parent node;
+//        path.remove(path.size() - 1);
+        path.removeLast();
+        return false; //not found anywhere;
+    }
+
+    void lastCommonAncestor(Node root, int n1, int n2) {
+        ArrayList<Node> list1 = new ArrayList<>();
+        ArrayList<Node> list2 = new ArrayList<>();
+
+        getPath(root, n1, list1);
+        getPath(root, n2, list2);
+
+        //match last common ancestor;
+        int i = 0;
+        for (; i < list1.size() && i < list2.size(); i++) {
+            if (list1.get(i).data != list2.get(i).data) {
+                break;
+            }
+        }
+        System.out.println("Last common ancestor = " + list1.get(i - 1).data);
+    }
+
+    //lowest common ancestor find out without extra space;
+    Node lca2(Node root, int n1, int n2) {
+        if (root == null) {
+            return null;
+        }
+        if (root.data == n1 || root.data == n2) {
+            return root;
+        }
+
+        Node leftLca = lca2(root.left, n1, n2);
+
+        Node rightLca = lca2(root.right, n1, n2);
+
+        if (leftLca == null) {
+            return rightLca;
+        }
+        if (rightLca == null) {
+            return leftLca;
+        }
+
+        return root;
+    }
+
+    int minDistanceNodes(Node root, int n) {
+        if (root == null) {
+            return -1; //base case;
+        }
+        if (root.data == n) {
+            return 0;
+        }
+        int leftDistance = minDistanceNodes(root.left, n);
+
+        int rightDistance = minDistanceNodes(root.right, n);
+
+        if (leftDistance != -1) {
+            return leftDistance + 1;
+        }
+        if (rightDistance != -1) {
+            return rightDistance + 1;
+        }
+
+        return -1;
+    }
+
+    int minDist(Node root, int n1, int n2) {
+        Node lca = lca2(root, n1, n2);
+        int left = minDistanceNodes(lca, n1);
+        int right = minDistanceNodes(lca, n2);
+        return left + right;
+    }
+
+    int kthAncestorNode(Node root, int kth, int searchNode) {
+        if (root == null) {
+            return -1; //base case;
+        }
+        if (root.data == searchNode) {
+            return 0;
+        }
+        int left = kthAncestorNode(root.left, kth, searchNode);
+
+        int right = kthAncestorNode(root.right, kth, searchNode);
+
+        if (left == -1 && right == -1) {
+            return -1;
+        }
+
+        int dist = Math.max(left, right) + 1;
+
+        if (dist == kth) {
+            System.out.println("kth ancestor value = " + root.data);
+        }
+        return dist;
+    }
+
+    //transform a tree to sum tree;
+    int transform(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        if (root.left == null && root.right == null) {
+            int oldValue = root.data;
+            root.data = 0;
+            return oldValue;
+        }
+        int left = transform(root.left);
+        int right = transform(root.right);
+
+        int oldValue = root.data;
+        root.data = left + right;
+
+        return root.data + oldValue;
+    }
+
 
     static void main(String[] args) {
         TopViewTree obj = new TopViewTree();
@@ -157,5 +296,14 @@ public class TopViewTree {
         System.out.println("\nKth level find using level iteration");
         int kth = 3;
         obj.kthLevelIteration(rootNode, kth);
+        obj.lastCommonAncestor(rootNode, 6, 5);
+
+        System.out.println("\nlca2 = " + obj.lca2(rootNode, 4, 3).data);
+        System.out.println("minimum distance = " + obj.minDist(rootNode, 2, 6));
+        obj.kthAncestorNode(rootNode, 2, 5);
+
+        obj.transform(rootNode);
+        obj.displayPreorder(rootNode);
+
     }
 }
