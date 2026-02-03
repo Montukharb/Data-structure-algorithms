@@ -12,7 +12,7 @@ public class BuildTreePreOrder {
         Node left;
         Node right;
 
-        private Node(int data) {
+         Node(int data) {
             this.data = data;
             left = null;
             right = null;
