@@ -56,13 +56,41 @@ public class BinarySearchTree {
 
     }
 
-    void deleteNode(Node root ,int data)
-    {
-       int res =  searchNode(root,data);
-       if(res!= -1) //key found
-       {
+    Node deleteNode(Node root, int data) {
+        if (data < root.data) {
+            root.left = deleteNode(root.left, data);
+        } else if (data > root.data) {
+            root.right = deleteNode(root.right, data);
+        } else {
+            //key match;
+            //case 1 delete leaf nodes;
+            if (root.left == null && root.right == null) {
+                return null; //leaf node return null delete node automatically.
+            }
+//           case 2: only one child right side or left side;
+            if (root.right == null) {
+                return root.left;
+            } else if (root.left == null) {
+                return root.right;
+            }
+            /* case 3 delete subtree node which
+              find the inorder successor of subtree root node
+              replace the data and delete the node;
+              iSD = Inorder successor data;
+            * */
+            Node iSD = inorderSuccessor(root.right);
+            root.data = iSD.data;
+            root.right = deleteNode(root.right, iSD.data);
+        }
+        return root;
+    }
 
-       }
+    Node inorderSuccessor(Node root) {
+        //left most node in right subtree search till end and return last node;
+        while (root.left != null) {
+            root = root.left;
+        }
+        return root;
     }
 
     static void main(String[] args) {
@@ -80,5 +108,10 @@ public class BinarySearchTree {
         } else {
             System.out.println("Key notFound");
         }
+
+        System.out.println("After deletion inorder data");
+        root = obj.deleteNode(root, 4);
+
+        obj.displayInorder(root);
     }
 }
